@@ -11,7 +11,13 @@ namespace AreaLibraryTests
     {
         public Circle(double radius)
         {
+            if (!RadiusValueVerification(radius)) throw new ArgumentException("Радиус должен быть положительным");
             Radius = radius;
+        }
+
+        private bool RadiusValueVerification(double radius)
+        {
+            return (radius > 0);
         }
 
         public double Radius { get; init; } = 1.0;

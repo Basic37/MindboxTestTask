@@ -21,6 +21,20 @@ namespace AreaLibraryTests
         }
 
         [Fact]
+        public void RadiusValueVerification()
+        {
+            //Arrange
+            double radius = -1;
+
+            //Act
+            Action act = () => new Circle(radius);
+
+            //Assert
+            ArgumentException exception = Assert.Throws<ArgumentException>(act);
+            Assert.Equal("Радиус должен быть положительным", exception.Message);
+        }
+
+        [Fact]
         public void CalculatingTriangleArea()
         {
             //Arrange
